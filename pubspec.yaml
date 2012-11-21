@@ -1,0 +1,6 @@
+name:  PassgoriExtension
+description:  Password storage using Nigori
+
+dependencies:
+  js:
+    hosted: js
