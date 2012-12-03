@@ -9,5 +9,11 @@
   },
   "permissions": [
     "https://nigori-dev.appspot.com/"
+  ],
+  "content_scripts": [
+      {
+          "matches": ["http://*/*","https://*/*"],
+          "js": ["bin/pageinject.dart.js"]
+      }
   ]
 }
