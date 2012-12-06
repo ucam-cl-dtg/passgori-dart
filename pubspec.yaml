@@ -2,5 +2,6 @@ name:  PassgoriExtension
 description:  Password storage using Nigori
 
 dependencies:
-  js:
-    hosted: js
+  js: any
+  nigori:
+    git: file:///home/drt24/dart/nigori/

@@ -1,1 +1,1 @@
-{"packages":{"js":{"version":"0.0.12","source":"hosted","description":"js"},"unittest":{"version":"0.2.7","source":"hosted","description":"unittest"}}}
+{"packages":{"nigori":{"version":"0.0.0","source":"git","description":{"url":"file:///home/drt24/dart/nigori/","ref":null,"resolved-ref":"dccda3abed04adad42e4473a5e81e73467e79261"}},"js":{"version":"0.0.12","source":"hosted","description":"js"},"unittest":{"version":"0.2.7","source":"hosted","description":"unittest"}}}
