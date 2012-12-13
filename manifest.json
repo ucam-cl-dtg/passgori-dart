@@ -5,7 +5,7 @@
   "description": "Password storage extension using Nigori.",
   "browser_action": {
     "default_icon": "nigori-logo-small-notext.png",
-    "default_popup": "html/popup.html"
+    "default_popup": "web/popup.html"
   },
   "permissions": [
     "https://nigori-dev.appspot.com/"
@@ -13,7 +13,7 @@
   "content_scripts": [
       {
           "matches": ["http://*/*","https://*/*"],
-          "js": ["bin/pageinject.dart.js"]
+          "js": ["web/pageinject.dart.js"]
       }
   ]
 }
