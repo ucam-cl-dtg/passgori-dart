@@ -9,7 +9,7 @@ class NigoriKeys {
 
   NigoriKeys.derive(String username, String password, String serverName){
     Sjcl sjcl = new Sjcl();
-    ByteArray userSalt = NigoriConstants.Usersalt.asByteArray();
+    ByteArray userSalt = NigoriConstants.Usersalt;
     if (userSalt == null){
       throw new StateError("user salt is null");
     }
