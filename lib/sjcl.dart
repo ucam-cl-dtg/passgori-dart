@@ -2,6 +2,7 @@ library sjcl;
 
 import 'package:js/js.dart' as js;
 import 'dart:scalarlist';
+import 'dart:crypto';
 
 /**
  * Encapsulate all the interactions with the sjcl library
@@ -12,6 +13,9 @@ class Sjcl {
     js.scoped((){
       sjcl = js.retain(js.context.sjcl);
     });
+  }
+  _toSjclBits(ByteArray array){
+    return sjcl.codec.hex.toBits(CryptoUtils.bytesToHex(new Uint8List.view(array)));
   }
   /**
    * [count] the number of iterations (must be at least 1000)
@@ -35,8 +39,8 @@ class Sjcl {
     }
     Uint8List bytesAnswer;
     js.scoped((){
-      var answer = sjcl.misc.pbkdf2(sjcl.codec.bytes.toBits(new Uint8List.view(password)),
-          sjcl.codec.bytes.toBits(new Uint8List.view(salt)),
+      var answer = sjcl.misc.pbkdf2(_toSjclBits(password),
+          _toSjclBits(salt),
           count,length*8/*sjcl wants bits*/,sjcl.misc.hmacsha1);
       // cribbed from sjcl.codec.bytes.fromBits
       int bitLength = sjcl.bitArray.bitLength(answer);
