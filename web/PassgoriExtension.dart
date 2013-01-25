@@ -12,9 +12,9 @@ import 'package:PassgoriExtension/sjcl.dart';
 var sjcl;
 void main() {
   js.scoped(() {
-    var context = js.context;
+    js.Proxy context = js.context;
     sjcl = js.retain(context.sjcl);
-    var submitbutton = query('#submit');
+    Element submitbutton = query('#submit');
     submitbutton.on.click.add((event){
       String key = query('#password').text;
       js.scoped((){

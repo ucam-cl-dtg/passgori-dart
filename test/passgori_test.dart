@@ -8,7 +8,7 @@ import 'dart:scalarlist';
 
 void main() {
   useHtmlConfiguration();
-  
+
   test('constants salt not null', () => expect(NigoriConstants.Usersalt,isNotNull));
   test('keyderivation', () => new NigoriKeys.derive("test","test","test"));
   NigoriKeys keys = new NigoriKeys.derive("test","test","test");

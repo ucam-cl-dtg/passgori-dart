@@ -31,7 +31,7 @@ class Sjcl {
     Int8List bytesAnswer = new Int8List(bitLength~/8);
     var tmp;
     for (int i=0; i<bitLength/8;++i){
-      if((i&3) === 0){
+      if((i&3) == 0){
         tmp = bits[i/4];
       }
       bytesAnswer[i] = tmp >> 24;
@@ -74,7 +74,7 @@ class Sjcl {
     js.scoped((){
       print('plaintext: ${byteArrayToString(text)}');
       print('hmackey: ${byteArrayToString(key)}');
-      var hmac = new js.Proxy(sjcl.misc.hmac,_toSjclBits(key));
+      js.Proxy hmac = new js.Proxy(sjcl.misc.hmac,_toSjclBits(key));
       bytesAnswer = _fromSjclBits(hmac.encrypt(text));
       print('hmacBytes: ${byteArrayToString(bytesAnswer)}');
     });
@@ -107,11 +107,11 @@ class Sjcl {
 
   /**
    * Must be called inside a js scope
-   * [iv] is a Proxy to 16 bytes of sjcl bitarray containing the iv to use for encryption 
+   * [iv] is a Proxy to 16 bytes of sjcl bitarray containing the iv to use for encryption
    */
   ByteArray _enc(ByteArray encKey, ByteArray macKey, ByteArray plaintext, js.Proxy iv) {
     Int8List list;
-      var aes = new js.Proxy(sjcl.cipher.aes,_toSjclBits(encKey)); 
+    js.Proxy aes = new js.Proxy(sjcl.cipher.aes,_toSjclBits(encKey));
       var ciphertext = sjcl.mode.cbc.encrypt(aes,_toSjclBits(plaintext),iv,[]);
       ByteArray ciphertextB = _fromSjclBits(ciphertext);
       ByteArray hmac = this.hmac(ciphertextB,macKey);
