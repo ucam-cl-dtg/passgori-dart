@@ -3,5 +3,6 @@ description:  Password storage using Nigori
 
 dependencies:
   js: any
+  json_object:
   nigori:
     git: file:///home/drt24/dart/nigori/
