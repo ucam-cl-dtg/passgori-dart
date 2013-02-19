@@ -34,7 +34,7 @@ class NigoriHttpJsonClient {
     NigoriNonce nonce = new NigoriNonce();
     DsaSignature sig = keys.sign(byteconcat([server_name,nonce.timestamp,nonce.random,command,message]));
     var auth = new AuthenticateRequest(keys.dsaPublicHash,
-        byteconcat([sig.r,sig.s]),nonce.toByteArray(),toBytes(server_name));
+        byteconcat([sig.r,sig.s]),nonce.toByteArray(),server_name);
     return auth;
   }
   _sendMessage(String json,String method){
