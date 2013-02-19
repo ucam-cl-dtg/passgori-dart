@@ -42,9 +42,12 @@ class NigoriHttpJsonClient {
     
     // add an event handler that is called when the request finishes
     httpRequest.onReadyStateChange.listen((_) {
-      if (httpRequest.readyState == HttpRequest.DONE /*&&
-          (httpRequest.status == 200 || httpRequest.status == 0)*/) {
-        print(httpRequest.responseText); // called when the POST successfully completes
+      if (httpRequest.readyState == HttpRequest.DONE){
+        if (httpRequest.status == 200 || httpRequest.status == 0) {
+          print("Success (${method}): ${httpRequest.responseText}"); // called when the POST successfully completes
+        } else {
+          print("Failure: ${httpRequest.status} ${httpRequest.responseText}");
+        }
       }
     });
     httpRequest.open("POST", "${_url}/${method}",false);
