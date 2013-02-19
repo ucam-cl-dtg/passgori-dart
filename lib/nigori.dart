@@ -38,10 +38,6 @@ class NigoriHttpJsonClient {
     return auth;
   }
   _sendMessage(String json,String method){
-//    HttpRequest.request("${_url}/${method}",method: "POST",sendData:json, responseType : "document").then((response) => print(response),
-//        onError : (error) {
-//          print("error: ${error.error.currentTarget.status} ${error.error.currentTarget.statusText} ${error.error.currentTarget.response}");
-//          });
     HttpRequest httpRequest =new HttpRequest();
     
     // add an event handler that is called when the request finishes
