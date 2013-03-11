@@ -15,7 +15,7 @@ void main() {
     js.Proxy context = js.context;
     sjcl = js.retain(context.sjcl);
     Element submitbutton = query('#submit');
-    submitbutton.on.click.add((event){
+    submitbutton.onClick.listen((event){
       String key = query('#password').text;
       js.scoped((){
         String ciphertext = sjcl.encrypt(key,'plaintext');

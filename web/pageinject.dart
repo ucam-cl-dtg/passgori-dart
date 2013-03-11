@@ -16,7 +16,7 @@ void main() {
   for (InputElement passwordBox in passwordElements){
     ButtonElement button = new ButtonElement();
     button.text = '*';
-    button.on.click.add(passwordBoxFiller(passwordBox));
+    button.onClick.listen(passwordBoxFiller(passwordBox));
     passwordBox.insertAdjacentElement('afterend', button);
   }
 }
