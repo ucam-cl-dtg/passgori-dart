@@ -3,5 +3,6 @@ description: Password storage using Nigori
 dependencies:
   nigori:
     git: file:///home/drt24/dart/nigori/
-  json_object: 1.0.7
+  json_object:
+    git: git://github.com/ucam-cl-dtg/dartwatch-JsonObject.git
   js: any

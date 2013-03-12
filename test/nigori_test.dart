@@ -26,7 +26,6 @@ void main() {
   test('get-indices one', () => client.getIndices());
   test('get-revisions', () => client.getRevisions(index));
   test('delete', () => client.delete(index));
-  test('get-revisions deleted', () => client.getRevisions(index));
   test('unregister', () => client.unregister()
       .then(expectAsync1((response) => expect(response,equals(true))))
       .catchError((error) => registerException(error)));
